@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单词释义匹配题</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .word, .meaning {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .word {
+            background-color: #f9f9f9;
+        }
+        .meaning {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>单词释义匹配题</h1>
+    <p>请将左侧的单词与右侧的正确释义匹配。</p>
+    <div class="container">
+        <div style="flex: 1;">
+            <h3>单词</h3>
+<div class="word" data-word="best-known">best-known</div>
+<div class="word" data-word="clumsy">clumsy</div>
+<div class="word" data-word="devastating">devastating</div>
+<div class="word" data-word="pigeon">pigeon</div>
+<div class="word" data-word="deliberately">deliberately</div>
+<div class="word" data-word="be employed for">be employed for</div>
+<div class="word" data-word="written records">written records</div>
+<div class="word" data-word="in existence">in existence</div>
+<div class="word" data-word="complicated">complicated</div>
+<div class="word" data-word="hunt">hunt</div>
+<div class="word" data-word="knee joints">knee joints</div>
+<div class="word" data-word="capable of">capable of</div>
+<div class="word" data-word="reliable">reliable</div>
+<div class="word" data-word="vegetation">vegetation</div>
+<div class="word" data-word="non-native">non-native</div>
+<div class="word" data-word="defend itself">defend itself</div>
+<div class="word" data-word="skeleton">skeleton</div>
+<div class="word" data-word="species">species</div>
+<div class="word" data-word="well-developed">well-developed</div>
+<div class="word" data-word="uneven">uneven</div>
+<div class="word" data-word="specimen">specimen</div>
+<div class="word" data-word="ecology">ecology</div>
+<div class="word" data-word="soft tissue">soft tissue</div>
+<div class="word" data-word="thick">thick</div>
+<div class="word" data-word="thinner">thinner</div>
+<div class="word" data-word="skull">skull</div>
+<div class="word" data-word="agriculture">agriculture</div>
+<div class="word" data-word="preserve">preserve</div>
+<div class="word" data-word="dried">dried</div>
+<div class="word" data-word="overran">overran</div>
+<div class="word" data-word="rats">rats</div>
+<div class="word" data-word="sailor">sailor</div>
+<div class="word" data-word="ripe">ripe</div>
+<div class="word" data-word="in relation to">in relation to</div>
+<div class="word" data-word="borne out">borne out</div>
+<div class="word" data-word="crops">crops</div>
+
+        </div>
+        <div style="flex: 1;">
+            <h3>释义</h3>
+<div class="meaning" data-meaning="更薄的">更薄的</div>
+<div class="meaning" data-meaning="厚的">厚的</div>
+<div class="meaning" data-meaning="最著名的">最著名的</div>
+<div class="meaning" data-meaning="关于">关于</div>
+<div class="meaning" data-meaning="发达的">发达的</div>
+<div class="meaning" data-meaning="书面记录">书面记录</div>
+<div class="meaning" data-meaning="成熟的">成熟的</div>
+<div class="meaning" data-meaning="被用于">被用于</div>
+<div class="meaning" data-meaning="非本地的">非本地的</div>
+<div class="meaning" data-meaning="鸽子">鸽子</div>
+<div class="meaning" data-meaning="可靠的">可靠的</div>
+<div class="meaning" data-meaning="老鼠">老鼠</div>
+<div class="meaning" data-meaning="农业">农业</div>
+<div class="meaning" data-meaning="水手">水手</div>
+<div class="meaning" data-meaning="被证实">被证实</div>
+<div class="meaning" data-meaning="能够">能够</div>
+<div class="meaning" data-meaning="软组织">软组织</div>
+<div class="meaning" data-meaning="故意地">故意地</div>
+<div class="meaning" data-meaning="自卫">自卫</div>
+<div class="meaning" data-meaning="植被">植被</div>
+<div class="meaning" data-meaning="骨架">骨架</div>
+<div class="meaning" data-meaning="物种">物种</div>
+<div class="meaning" data-meaning="泛滥">泛滥</div>
+<div class="meaning" data-meaning="农作物">农作物</div>
+<div class="meaning" data-meaning="生态">生态</div>
+<div class="meaning" data-meaning="复杂的">复杂的</div>
+<div class="meaning" data-meaning="头骨">头骨</div>
+<div class="meaning" data-meaning="干燥的">干燥的</div>
+<div class="meaning" data-meaning="标本">标本</div>
+<div class="meaning" data-meaning="不平的">不平的</div>
+<div class="meaning" data-meaning="狩猎">狩猎</div>
+<div class="meaning" data-meaning="保存">保存</div>
+<div class="meaning" data-meaning="现存的">现存的</div>
+<div class="meaning" data-meaning="膝关节">膝关节</div>
+<div class="meaning" data-meaning="毁灭性的">毁灭性的</div>
+<div class="meaning" data-meaning="笨拙的">笨拙的</div>
+
+        </div>
+    </div>
+    <script>
+        const words = document.querySelectorAll('.word');
+        const meanings = document.querySelectorAll('.meaning');
+        let selectedWord = null;
+        let selectedMeaning = null;
+
+        words.forEach(word => {
+            word.addEventListener('click', () => {
+                if (selectedWord) selectedWord.style.backgroundColor = '#f9f9f9';
+                selectedWord = word;
+                word.style.backgroundColor = '#a0d8ef';
+                checkMatch();
+            });
+        });
+
+        meanings.forEach(meaning => {
+            meaning.addEventListener('click', () => {
+                if (selectedMeaning) selectedMeaning.style.backgroundColor = '#e0e0e0';
+                selectedMeaning = meaning;
+                meaning.style.backgroundColor = '#a0d8ef';
+                checkMatch();
+            });
+        });
+
+        function checkMatch() {
+            if (selectedWord && selectedMeaning) {
+                const word = selectedWord.getAttribute('data-word');
+                const meaning = selectedMeaning.getAttribute('data-meaning');
+                const correctMeaning = {
+                    "written records": "书面记录",
+                    "reliable": "可靠的",
+                    "best-known": "最著名的",
+                    "thinner": "更薄的",
+                    "preserve": "保存",
+                    "specimen": "标本",
+                    "dried": "干燥的",
+                    "soft tissue": "软组织",
+                    "skeleton": "骨架",
+                    "in existence": "现存的",
+                    "clumsy": "笨拙的",
+                    "knee joints": "膝关节",
+                    "capable of": "能够",
+                    "sailor": "水手",
+                    "be employed for": "被用于",
+                    "uneven": "不平的",
+                    "skull": "头骨",
+                    "borne out": "被证实",
+                    "in relation to": "关于",
+                    "pigeon": "鸽子",
+                    "well-developed": "发达的",
+                    "ripe": "成熟的",
+                    "thick": "厚的",
+                    "vegetation": "植被",
+                    "defend itself": "自卫",
+                    "hunt": "狩猎",
+                    "complicated": "复杂的",
+                    "species": "物种",
+                    "deliberately": "故意地",
+                    "rats": "老鼠",
+                    "overran": "泛滥",
+                    "ecology": "生态",
+                    "devastating": "毁灭性的",
+                    "non-native": "非本地的",
+                    "agriculture": "农业",
+                    "crops": "农作物"
+                }[word];
+
+                if (meaning === correctMeaning) {
+                    alert('匹配正确！');
+                    selectedWord.style.backgroundColor = '#90ee90';
+                    selectedMeaning.style.backgroundColor = '#90ee90';
+                    selectedWord.removeEventListener('click', () => {});
+                    selectedMeaning.removeEventListener('click', () => {});
+                } else {
+                    alert('匹配错误，请重试！');
+                }
+                selectedWord = null;
+                selectedMeaning = null;
+            }
+        }
+    </script>
+</body>
+</html>
